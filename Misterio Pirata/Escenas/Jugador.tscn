@@ -1,70 +1,43 @@
-[gd_scene load_steps=25 format=3 uid="uid://b1dgg1f215vti"]
+[gd_scene load_steps=30 format=3 uid="uid://b1dgg1f215vti"]
 
 [ext_resource type="Script" uid="uid://20tebert78lf" path="res://Scrip/Jugador.gd" id="1_pclxs"]
+[ext_resource type="Texture2D" uid="uid://j7nbiqew3r0k" path="res://Sprite/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="2_g735c"]
+[ext_resource type="Texture2D" uid="uid://qnmqawu1d12w" path="res://Sprite/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="3_3le5i"]
 [ext_resource type="Texture2D" uid="uid://ckowepm12yj6d" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 01.png" id="3_466xc"]
 [ext_resource type="Texture2D" uid="uid://shmqw85obs0m" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 02.png" id="4_8vwo7"]
+[ext_resource type="Texture2D" uid="uid://cj5du41p65jgp" path="res://Sprite/Captain Clown Nose with Sword/16-Attack 2/Attack 2 03.png" id="4_ldqfe"]
 [ext_resource type="Script" uid="uid://6kqgxhndsqyc" path="res://bola.gd" id="4_w2bje"]
 [ext_resource type="Texture2D" uid="uid://c2qap2qhvucs4" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 03.png" id="5_rno6r"]
 [ext_resource type="AudioStream" uid="uid://ccifwqodjgwny" path="res://Musica/SonidoEntrarTuberia.ogg" id="6_kg3ks"]
 [ext_resource type="Texture2D" uid="uid://b1stdcqf0bfpy" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 04.png" id="6_xsch2"]
 [ext_resource type="Texture2D" uid="uid://my46n52flqk6" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 05.png" id="7_defnh"]
 [ext_resource type="Texture2D" uid="uid://b530n7n8kpjil" path="res://Sprite/Captain Clown Nose without Sword/02-Run/Run 06.png" id="8_6b1b7"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srl76"]
-load_path = "res://.godot/imported/Sprite guerrero.png-aebab1fd7b2002afb3122a935bd78323.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucnt4"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(5, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w2bje"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(52, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pclxs"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(99, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kg3ks"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(240, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v1h6a"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(287, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g5j21"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(334, 94, 47, 47)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhgme"]
-atlas = SubResource("CompressedTexture2D_srl76")
-region = Rect2(349, 51, 47, 44)
+[ext_resource type="Texture2D" uid="uid://5datj8g23pk" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="8_phmxj"]
+[ext_resource type="Texture2D" uid="uid://cwj5krydqwwow" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 02.png" id="9_xsu1a"]
+[ext_resource type="Texture2D" uid="uid://cj52javlp5swq" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 03.png" id="10_1340j"]
+[ext_resource type="Texture2D" uid="uid://b1lvsv84jmrj" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 04.png" id="11_g735c"]
+[ext_resource type="Texture2D" uid="uid://ca6anu3d255t2" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 05.png" id="12_3le5i"]
+[ext_resource type="Texture2D" uid="uid://cnaiyvbstid6t" path="res://Sprite/Captain Clown Nose with Sword/10-Run Sword/Run Sword 06.png" id="13_ldqfe"]
+[ext_resource type="Texture2D" uid="uid://sw81kmbe7klg" path="res://Sprite/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" id="17_sb2or"]
+[ext_resource type="Texture2D" uid="uid://bptue550qu1a3" path="res://Sprite/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" id="18_v8mjx"]
+[ext_resource type="Texture2D" uid="uid://bl61nddg5iund" path="res://Sprite/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" id="19_2c0fp"]
+[ext_resource type="Texture2D" uid="uid://be1t2jiaj624v" path="res://Sprite/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="20_q4s4l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_466xc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ucnt4")
+"texture": ExtResource("2_g735c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w2bje")
+"texture": ExtResource("3_3le5i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pclxs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kg3ks")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v1h6a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g5j21")
+"texture": ExtResource("4_ldqfe")
 }],
 "loop": false,
 "name": &"Atacar",
-"speed": 25.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -91,9 +64,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhgme")
+"texture": ExtResource("8_phmxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xsu1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1340j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g735c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3le5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ldqfe")
 }],
 "loop": true,
+"name": &"CaminarArmado",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_sb2or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v8mjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2c0fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q4s4l")
+}],
+"loop": false,
 "name": &"Muerto",
 "speed": 5.0
 }]

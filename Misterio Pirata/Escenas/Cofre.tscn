@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://dyvj15ulfb7ax"]
+
+[ext_resource type="Script" uid="uid://dr3y6xio0r15k" path="res://Escenas/Cofre.gd" id="1_uumtd"]
+[ext_resource type="Texture2D" uid="uid://bv0dg370sdkmm" path="res://Sprite/Chest/Unlocked/1.png" id="2_ln18o"]
+[ext_resource type="Texture2D" uid="uid://b3bi5wd450kl2" path="res://Sprite/Chest/Unlocked/2.png" id="3_dbdvp"]
+[ext_resource type="Texture2D" uid="uid://c006c3787e1rn" path="res://Sprite/Chest/Unlocked/3.png" id="4_n4qka"]
+[ext_resource type="Texture2D" uid="uid://bhn4ibug7c25t" path="res://Sprite/Chest/Unlocked/4.png" id="5_0iylv"]
+[ext_resource type="Texture2D" uid="uid://nicaf5cq3l44" path="res://Sprite/Chest/Unlocked/5.png" id="6_4lpcp"]
+[ext_resource type="Texture2D" uid="uid://cne71rqcsk2oi" path="res://Sprite/Chest/Unlocked/6.png" id="7_wi7r6"]
+[ext_resource type="Texture2D" uid="uid://b67o3drur56fq" path="res://Sprite/Chest/Unlocked/7.png" id="8_pi0t5"]
+[ext_resource type="Texture2D" uid="uid://dqhphu2wgdvqk" path="res://Sprite/Chest/Unlocked/8.png" id="9_y57rs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uumtd"]
+size = Vector2(130, 186)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lpsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ln18o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dbdvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n4qka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0iylv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4lpcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wi7r6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pi0t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y57rs")
+}],
+"loop": false,
+"name": &"Abrir",
+"speed": 5.0
+}]
+
+[node name="Candado" type="Node2D"]
+script = ExtResource("1_uumtd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.81402e-06, 0)
+shape = SubResource("RectangleShape2D_uumtd")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 11)
+scale = Vector2(3.90625, 5.21875)
+sprite_frames = SubResource("SpriteFrames_4lpsr")
+animation = &"Abrir"

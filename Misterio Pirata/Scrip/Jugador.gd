@@ -8,6 +8,7 @@ var Pantalla
 var tiempo
 var Daño:bool = true
 var Movimiento:bool = true
+var EspadaEquipada: bool = false
 
 func _ready() -> void:
 	ControlDeJuego._ActualizarVida(Vida)
@@ -28,11 +29,11 @@ func _Mover(Tiempo):
 	if is_on_floor() and Input.is_action_pressed("Derecha"):
 		Sprite.x += 1
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("Caminar")
+		
 	if is_on_floor() and Input.is_action_pressed("Izquierda"):
 		Sprite.x -= 1
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("Caminar")
+		
 	
 	if is_on_floor() and Input.is_action_just_pressed("Salto"):
 		$AudioStreamPlayer2D.play()
@@ -47,11 +48,14 @@ func _Mover(Tiempo):
 	Sprite = Sprite.normalized() * Velocidad
 	
 	if Sprite.length() > 0:
-		$AnimatedSprite2D.play("Caminar")
+		if EspadaEquipada == false:
+			$AnimatedSprite2D.play("Caminar")
+		if EspadaEquipada == true:
+			$AnimatedSprite2D.play("CaminarArmado")
 		position += Sprite * Tiempo
 		# position = position.clamp(Vector2.ZERO,Pantalla)
 		
-	if Sprite.length() == 0 && $AnimatedSprite2D.animation == "Caminar":
+	if Sprite.length() == 0:
 		$AnimatedSprite2D.stop()
 	
 	
@@ -110,26 +114,28 @@ func _RecibirAtaque():
 			Daño = true
 			
 func _Atacar1():
-	if Input.is_action_just_pressed("Usar"):
-		if $AnimatedSprite2D.flip_h == true:
-			if Input.is_action_just_pressed("Usar"):
-				$AnimatedSprite2D.play("Atacar")
-				await (get_tree().create_timer(0.1)).timeout
-				$Bola.position.x = -18.0
-				await (get_tree().create_timer(0.1)).timeout
-				$Bola.position.x = 0.0
-				$AnimatedSprite2D.animation = "Caminar"
+	if EspadaEquipada == true:
+		if Input.is_action_just_pressed("Usar"):
+			if $AnimatedSprite2D.flip_h == true:
+				if Input.is_action_just_pressed("Usar"):
+					$AnimatedSprite2D.play("Atacar")
+					await (get_tree().create_timer(0.1)).timeout
+					$Bola.position.x = -18.0
+					await (get_tree().create_timer(0.1)).timeout
+					$Bola.position.x = 0.0
+					$AnimatedSprite2D.animation = "CaminarArmado"
 				
 func _Atacar2():
-	if Input.is_action_just_pressed("Usar"):
-		if $AnimatedSprite2D.flip_h == false:
-			if Input.is_action_just_pressed("Usar"):
-				$AnimatedSprite2D.play("Atacar")
-				await (get_tree().create_timer(0.1)).timeout
-				$Bola.position.x = 11.0
-				await (get_tree().create_timer(0.1)).timeout
-				$Bola.position.x = 0.0
-				$AnimatedSprite2D.animation = "Caminar"
+	if EspadaEquipada == true:
+		if Input.is_action_just_pressed("Usar"):
+			if $AnimatedSprite2D.flip_h == false:
+				if Input.is_action_just_pressed("Usar"):
+					$AnimatedSprite2D.play("Atacar")
+					await (get_tree().create_timer(0.1)).timeout
+					$Bola.position.x = 11.0
+					await (get_tree().create_timer(0.1)).timeout
+					$Bola.position.x = 0.0
+					$AnimatedSprite2D.animation = "CaminarArmado"
 				
 func  _VerificarVida():
 	if Vida == 0:
@@ -138,6 +144,14 @@ func  _VerificarVida():
 		ControlDeJuego._RestaurarVariables()
 		await (get_tree().create_timer(2)).timeout
 		get_tree().change_scene_to_file("res://Escenas/titulo.tscn")
+
+func _EquiparEspada():
+	EspadaEquipada = true
+	_MostrarEspada()
+	
+	
+func _MostrarEspada():
+	$AnimatedSprite2D.animation = "CaminarArmado"
 				
 
 				
