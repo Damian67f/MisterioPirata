@@ -140,10 +140,15 @@ func _Atacar2():
 func  _VerificarVida():
 	if Vida == 0:
 		Movimiento = false
-		$AnimatedSprite2D.animation = "Muerto"
-		ControlDeJuego._RestaurarVariables()
+		$AnimatedSprite2D.animation = "Muerto"		
 		await (get_tree().create_timer(2)).timeout
+		ControlDeJuego._RestaurarVariables()
 		get_tree().change_scene_to_file("res://Escenas/titulo.tscn")
+
+func _curar():
+	if Vida < 4:
+		Vida += 1
+		ControlDeJuego._ActualizarVida(Vida)
 
 func _EquiparEspada():
 	EspadaEquipada = true

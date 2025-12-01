@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://cioe4ve0cl7nn"]
+
+[ext_resource type="Script" uid="uid://bx10k30ckels0" path="res://Scrip/Craneo.gd" id="1_e7l8e"]
+[ext_resource type="Texture2D" uid="uid://mamgju6kdygh" path="res://Sprite/Golden Skull/01.png" id="2_8gr5l"]
+[ext_resource type="Texture2D" uid="uid://dq1gch6th4qy3" path="res://Sprite/Golden Skull/02.png" id="3_si4j6"]
+[ext_resource type="Texture2D" uid="uid://dlccpojcy2587" path="res://Sprite/Golden Skull/03.png" id="4_cxk2p"]
+[ext_resource type="Texture2D" uid="uid://24xebfkwccqs" path="res://Sprite/Golden Skull/04.png" id="5_mswhs"]
+[ext_resource type="Texture2D" uid="uid://css0a0yvj5p4f" path="res://Sprite/Golden Skull/05.png" id="6_fbp32"]
+[ext_resource type="Texture2D" uid="uid://coprsahfut2tx" path="res://Sprite/Golden Skull/06.png" id="7_w2n37"]
+[ext_resource type="Texture2D" uid="uid://cynd3jh2jge8j" path="res://Sprite/Golden Skull/07.png" id="8_746hr"]
+[ext_resource type="Texture2D" uid="uid://dwrm350bdpyoa" path="res://Sprite/Golden Skull/08.png" id="9_7dph7"]
+[ext_resource type="AudioStream" uid="uid://h8q0g7n3331" path="res://Musica/long-whoosh-334879.mp3" id="10_e7l8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vhoe"]
+radius = 71.4493
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov454"]
+size = Vector2(148, 117)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpgxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8gr5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_si4j6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cxk2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mswhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fbp32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w2n37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_746hr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7dph7")
+}],
+"loop": true,
+"name": &"Mover",
+"speed": 5.0
+}]
+
+[node name="Craneo" type="Node2D"]
+script = ExtResource("1_e7l8e")
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(4, 12)
+shape = SubResource("CircleShape2D_1vhoe")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2d"]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d/Area2D"]
+position = Vector2(4, 11.5)
+shape = SubResource("RectangleShape2D_ov454")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="CharacterBody2d"]
+texture_filter = 1
+position = Vector2(-0.499999, 6.125)
+scale = Vector2(11.6875, 10.8906)
+sprite_frames = SubResource("SpriteFrames_gpgxu")
+animation = &"Mover"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_e7l8e")
+volume_db = 24.0
+
+[connection signal="body_entered" from="CharacterBody2d/Area2D" to="." method="_on_area_2d_body_entered"]

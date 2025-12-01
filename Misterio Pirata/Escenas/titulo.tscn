@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bueom3bs8vve1"]
 
-[ext_resource type="Script" uid="uid://dxic3p1nhh01s" path="res://Escenas/titulo.gd" id="1_e7xiu"]
+[ext_resource type="Script" uid="uid://dxic3p1nhh01s" path="res://Scrip/titulo.gd" id="1_e7xiu"]
 [ext_resource type="Texture2D" uid="uid://qbmtw3ylb85i" path="res://Tileset/Background/Additional Sky.png" id="2_vpmdm"]
 [ext_resource type="AudioStream" uid="uid://ctr8qd8506s2c" path="res://Musica/pirate-jolly-roger-loop-369969.mp3" id="3_e7xiu"]
 [ext_resource type="Texture2D" uid="uid://c03htlpyi3gye" path="res://Sprite/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="4_e7xiu"]

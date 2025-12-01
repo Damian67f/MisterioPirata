@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://debgl4skulh4l"]
+
+[ext_resource type="Script" uid="uid://bjrk0tmvm3t4r" path="res://Scrip/final.gd" id="1_53m2v"]
+
+[node name="Final" type="Node"]
+script = ExtResource("1_53m2v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.108721, 0.108721, 0.108721, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 80.0
+offset_top = 106.0
+offset_right = 1489.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 130
+text = "Felicidades ganaste
+ el juego!"

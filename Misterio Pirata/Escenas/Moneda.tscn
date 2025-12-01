@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1mi1so5eg68c"]
+
+[ext_resource type="Script" uid="uid://d0arp33gr4yus" path="res://Scrip/Moneda.gd" id="1_ykh87"]
+[ext_resource type="Texture2D" uid="uid://dmiebbinhktap" path="res://Sprite/Gold Coin/01.png" id="2_ykh87"]
+[ext_resource type="Texture2D" uid="uid://4n1eufg2q5hf" path="res://Sprite/Gold Coin/02.png" id="3_fdjrc"]
+[ext_resource type="Texture2D" uid="uid://nbclwsks3qnc" path="res://Sprite/Gold Coin/03.png" id="4_ir0fm"]
+[ext_resource type="Texture2D" uid="uid://wel4quq0rcvc" path="res://Sprite/Gold Coin/04.png" id="5_m7si0"]
+[ext_resource type="AudioStream" uid="uid://vxmch71adca2" path="res://Musica/SonidoBoton.mp3" id="6_fdjrc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vhoe"]
+radius = 71.4493
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov454"]
+size = Vector2(148, 117)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpgxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ykh87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fdjrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ir0fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m7si0")
+}],
+"loop": true,
+"name": &"Mover",
+"speed": 5.0
+}]
+
+[node name="Moneda" type="Node2D"]
+script = ExtResource("1_ykh87")
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(4, 12)
+shape = SubResource("CircleShape2D_1vhoe")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2d"]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d/Area2D"]
+position = Vector2(4, 11.5)
+shape = SubResource("RectangleShape2D_ov454")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="CharacterBody2d"]
+texture_filter = 1
+position = Vector2(-0.499999, 6.125)
+scale = Vector2(11.6875, 10.8906)
+sprite_frames = SubResource("SpriteFrames_gpgxu")
+animation = &"Mover"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fdjrc")
+volume_db = 10.0
+pitch_scale = 1.8
+
+[connection signal="body_entered" from="CharacterBody2d/Area2D" to="." method="_on_area_2d_body_entered"]

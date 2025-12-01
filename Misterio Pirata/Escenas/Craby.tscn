@@ -98,6 +98,7 @@ position = Vector2(0.499999, -26.5)
 shape = SubResource("RectangleShape2D_ov454")
 
 [node name="Animacion" type="AnimatedSprite2D" parent="CharacterBody2d"]
+texture_filter = 1
 position = Vector2(1.50001, 18.5)
 scale = Vector2(5.79167, 9.34375)
 sprite_frames = SubResource("SpriteFrames_gpgxu")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7tqp60byb7pt"]
+
+[ext_resource type="Script" uid="uid://c0jk07ngyecwg" path="res://Scrip/Posion.gd" id="1_qsicn"]
+[ext_resource type="Texture2D" uid="uid://bk4f6qfij4hmv" path="res://Sprite/Green Bottle/01.png" id="2_0kk36"]
+[ext_resource type="Texture2D" uid="uid://586jalcojhw7" path="res://Sprite/Green Bottle/02.png" id="3_u7224"]
+[ext_resource type="Texture2D" uid="uid://d2or4pha5v4o7" path="res://Sprite/Green Bottle/03.png" id="4_c7y0t"]
+[ext_resource type="Texture2D" uid="uid://wtddkjdjqlt5" path="res://Sprite/Green Bottle/04.png" id="5_eq5mb"]
+[ext_resource type="AudioStream" uid="uid://vxmch71adca2" path="res://Musica/SonidoBoton.mp3" id="6_u7224"]
+[ext_resource type="Texture2D" uid="uid://yl2xji08mvtj" path="res://Sprite/Green Bottle/05.png" id="6_x3kkw"]
+[ext_resource type="Texture2D" uid="uid://d4di5fn7fr214" path="res://Sprite/Green Bottle/06.png" id="7_g5env"]
+[ext_resource type="Texture2D" uid="uid://jlny54w614yk" path="res://Sprite/Green Bottle/07.png" id="8_foi08"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vhoe"]
+radius = 71.4493
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov454"]
+size = Vector2(148, 117)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpgxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0kk36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u7224")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c7y0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eq5mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x3kkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g5env")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_foi08")
+}],
+"loop": true,
+"name": &"Mover",
+"speed": 5.0
+}]
+
+[node name="Posion" type="Node2D"]
+script = ExtResource("1_qsicn")
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(4, 12)
+shape = SubResource("CircleShape2D_1vhoe")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2d"]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2d/Area2D"]
+position = Vector2(4, 11.5)
+shape = SubResource("RectangleShape2D_ov454")
+
+[node name="Animacion" type="AnimatedSprite2D" parent="CharacterBody2d"]
+texture_filter = 1
+position = Vector2(3, 1)
+scale = Vector2(9.4976, 8.80559)
+sprite_frames = SubResource("SpriteFrames_gpgxu")
+animation = &"Mover"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_u7224")
+volume_db = 10.0
+pitch_scale = 1.8
+
+[connection signal="body_entered" from="CharacterBody2d/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyvj15ulfb7ax"]
+[gd_scene load_steps=13 format=3 uid="uid://dyvj15ulfb7ax"]
 
-[ext_resource type="Script" uid="uid://dr3y6xio0r15k" path="res://Escenas/Cofre.gd" id="1_uumtd"]
+[ext_resource type="Script" uid="uid://dr3y6xio0r15k" path="res://Scrip/Cofre.gd" id="1_uumtd"]
 [ext_resource type="Texture2D" uid="uid://bv0dg370sdkmm" path="res://Sprite/Chest/Unlocked/1.png" id="2_ln18o"]
 [ext_resource type="Texture2D" uid="uid://b3bi5wd450kl2" path="res://Sprite/Chest/Unlocked/2.png" id="3_dbdvp"]
 [ext_resource type="Texture2D" uid="uid://c006c3787e1rn" path="res://Sprite/Chest/Unlocked/3.png" id="4_n4qka"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cne71rqcsk2oi" path="res://Sprite/Chest/Unlocked/6.png" id="7_wi7r6"]
 [ext_resource type="Texture2D" uid="uid://b67o3drur56fq" path="res://Sprite/Chest/Unlocked/7.png" id="8_pi0t5"]
 [ext_resource type="Texture2D" uid="uid://dqhphu2wgdvqk" path="res://Sprite/Chest/Unlocked/8.png" id="9_y57rs"]
+[ext_resource type="AudioStream" uid="uid://h8q0g7n3331" path="res://Musica/long-whoosh-334879.mp3" id="10_migdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uumtd"]
 size = Vector2(130, 186)
@@ -45,7 +46,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Candado" type="Node2D"]
+[node name="Cofre" type="Node2D"]
 script = ExtResource("1_uumtd")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -59,3 +60,7 @@ position = Vector2(0, 11)
 scale = Vector2(3.90625, 5.21875)
 sprite_frames = SubResource("SpriteFrames_4lpsr")
 animation = &"Abrir"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_migdl")
+volume_db = 24.0

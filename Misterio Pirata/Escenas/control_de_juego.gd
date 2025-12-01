@@ -3,6 +3,8 @@ extends Node
 var Llave:bool = false
 var Vida:int = 0
 var Bandera: bool = false
+var Monedas: int = 0
+var Craneo:bool = false
 
 func _ready() -> void:
 	pass
@@ -25,6 +27,8 @@ func _RestaurarVariables():
 	$CanvasLayer.visible = false
 	Vida = 0
 	Bandera = false
+	Monedas = 0
+	Craneo = false
 	
 func _verVida():
 	return Vida
@@ -37,3 +41,19 @@ func _VerBandera():
 	
 func _ActivarBandera():
 	Bandera = true
+	
+func _VerificarMonedas():
+	return Monedas
+	
+func _AumentarMonedas():
+	Monedas += 1
+	
+func _VerificarCraneo():
+	return Craneo
+	
+func _ActivarCraneo():
+	Craneo = true
+	
+func _DesactivarCraneo():
+	Craneo = false
+	
