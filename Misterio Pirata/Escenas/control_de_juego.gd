@@ -19,6 +19,9 @@ func _ObtenerLlave():
 	$CanvasLayer.visible = true
 	Llave = true
 	
+func _DescartarLlave():
+	$CanvasLayer.visible = false
+	
 func _EstadoLlave():
 	return Llave
 	
